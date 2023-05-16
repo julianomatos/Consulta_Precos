@@ -6,6 +6,8 @@ import 'package:consulta_precos/screens/product_list_screen.dart';
 import 'package:consulta_precos/screens/product_show_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'routes/route_path.dart';
+
 void main() =>  runApp(App());
 
 
@@ -17,9 +19,9 @@ class App extends StatelessWidget {
     return MaterialApp(
         //home: ProductListScreen(_product),
         routes: {
-          '/': (context) => ProductListScreen(),
-          '/product_show_screen': (context) => const ProductShowScrenn(),
-        }
+        RoutePaths.HOME: (context) => ProductListScreen(),
+        RoutePaths.PRODUCTSHOWSCREEN: (context) => ProductShowScrenn(),
+      }
         );
   }
 }
