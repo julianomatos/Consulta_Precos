@@ -1,6 +1,6 @@
-import 'package:consulta_precos/providers/products_provider.dart';
+import 'package:consulta_precos/models/product.dart';
+import 'package:consulta_precos/services/products_service.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import 'product_list_item.dart';
 
@@ -9,17 +9,40 @@ class ProductList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final products = Provider.of<ProductsProvider>(context);
-     List<Widget> generateListProduct(BuildContext context) {
-    return products.itens.
-    map((product) => ProductListItem(product)).toList();
-  }
-    return  products.itens.isNotEmpty
-            ?Expanded(
-                  child: ListView(
-                      children: generateListProduct(context),
-                    ),
-                ) 
-                : const Text("Não há produtos cadastrados.");
+    //final products = Provider.of<ProductsProvider>(context);
+    List<Widget> generateListProduct(List<Product> products) {
+      return products.map((product) => ProductListItem(product)).toList();
+    }
+
+    return FutureBuilder<List<Product>>(
+        future: ProductsService().list(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else if (snapshot.hasError) {
+            return const Center(
+              child: Text('Erro ao consultar dados'),
+            );
+          } else if (snapshot.hasData) {
+            final list = snapshot.data;
+            if (list != null && list.isNotEmpty) {
+              return Expanded(
+                child: ListView(
+                  children: generateListProduct(list),
+                ),
+              );
+            } else {
+              return const Center(
+                child: Text('Nenhum produto cadastrado.'),
+              );
+            }
+          } else {
+            return const Center(
+              child: Text('Nenhum produto cadastrado.'),
+            );
+          }
+        });
   }
 }

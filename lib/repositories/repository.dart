@@ -12,7 +12,7 @@ abstract class Repository {
     return http.get(uri);
   }
 
-  Future<http.Response> inser(String data) {
+  Future<http.Response> insert(String data) {
     final uri = Uri.parse("$_baseUrl/$_resource.json");
     return http.post(uri, body: data);
   }
