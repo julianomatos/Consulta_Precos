@@ -2,6 +2,7 @@
 
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
 
+import 'package:consulta_precos/screens/product_insert_screen.dart';
 import 'package:consulta_precos/screens/product_list_screen.dart';
 import 'package:consulta_precos/screens/product_show_screen.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,8 @@ class App extends StatelessWidget {
         routes: {
         RoutePaths.HOME: (context) => ProductListScreen(),
         RoutePaths.PRODUCTSHOWSCREEN: (context) => ProductShowScrenn(),
+        RoutePaths.PRODUCTINSERTSCREEN: (context) => ProductInsertScreen(),
+      
       }
         );
   }

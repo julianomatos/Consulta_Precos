@@ -22,8 +22,8 @@ class ProductList extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           } else if (snapshot.hasError) {
-            final errorMessage = snapshot.error ?? 'Erro desconhecido';
-            print(errorMessage);
+     //       final errorMessage = snapshot.error ?? 'Erro desconhecido';
+    //        print(errorMessage);
             return Center(
               child: Text('Erro ao consultar dados ${snapshot.error}'),
             );

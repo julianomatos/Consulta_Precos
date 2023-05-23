@@ -1,6 +1,7 @@
 import 'package:consulta_precos/componentes/product_list.dart';
 import 'package:consulta_precos/componentes/product_overview_card.dart';
 import 'package:consulta_precos/providers/products_provider.dart';
+import 'package:consulta_precos/routes/route_path.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,7 +13,6 @@ class ProductListScreen extends StatefulWidget {
 }
 
 class _ProductListScreenState extends State<ProductListScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,13 +21,18 @@ class _ProductListScreenState extends State<ProductListScreen> {
       ),
       body: ChangeNotifierProvider(
         create: (context) => ProductsProvider(),
-        child: Column(children: const[
-          ProductOverviewCard(),
-          ProductList(),
-              ],
-            ),
-      )
-         
+        child: Column(
+          children: const [
+            ProductOverviewCard(),
+            ProductList(),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () {
+            Navigator.of(context).pushNamed(RoutePaths.PRODUCTINSERTSCREEN);
+          }),
     );
   }
 }

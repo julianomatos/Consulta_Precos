@@ -7,7 +7,7 @@ class Product {
   int quant;
 
   Product(
-      this.id, this.name, this.price, this.location, this.imageUrl, this.quant);
+      this.name, this.price, this.location, this.imageUrl, this.quant);
 
   Product.fromJson(Map<String, dynamic> json)
       : id = json['id'],
