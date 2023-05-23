@@ -5,7 +5,6 @@
 import 'package:consulta_precos/screens/product_list_screen.dart';
 import 'package:consulta_precos/screens/product_show_screen.dart';
 import 'package:flutter/material.dart';
-
 import 'routes/route_path.dart';
 
 void main() =>  runApp(App());

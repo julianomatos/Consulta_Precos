@@ -18,9 +18,12 @@ class ProductShowScrenn extends StatelessWidget {
       body: Column(
         children: [
           Image.network(product.imageUrl),
-          Text(product.name),
-          Text(product.price.toStringAsFixed(2)),
-          Text(product.location)
+          Text(product.name, 
+          style: const TextStyle(fontSize: 30.0),),
+          Text(product.price.toStringAsFixed(2),
+          style: const TextStyle(fontSize: 30.0),),
+          Text(product.location,
+          style: const TextStyle(fontSize: 30.0),)
         ]
       ),
     );

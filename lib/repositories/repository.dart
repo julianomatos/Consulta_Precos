@@ -7,6 +7,7 @@ abstract class Repository {
 
   Repository(this._resource);
 
+
   Future<http.Response> list() {
     final uri = Uri.parse("$_baseUrl/$_resource.json");
     return http.get(uri);

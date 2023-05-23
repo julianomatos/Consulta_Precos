@@ -10,20 +10,27 @@ class ProductOverviewCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final products = Provider.of<ProductsProvider>(context);
     return Card(
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
         const Text(
           "Total",
+          style: TextStyle(fontSize: 36.0),
         ),
         Column(
           children: [
             const Text("Quant"),
-            Text("${products.countItens()}"),
+            Text(
+              "${products.countItens()}",
+            style: const TextStyle(fontSize: 36.0),
+            ),
           ],
         ),
         Column(
           children: [
             const Text("R\$"),
-            Text(products.totalPrice()),
+            Text(products.totalPrice(),
+            style: const TextStyle(fontSize: 36.0),),
           ],
         )
       ]),
