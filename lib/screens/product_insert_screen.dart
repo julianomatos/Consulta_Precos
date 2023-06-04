@@ -1,4 +1,6 @@
-import 'dart:html';
+//import 'dart:html';
+
+// ignore_for_file: unused_local_variable
 
 import 'package:consulta_precos/models/product.dart';
 import 'package:flutter/material.dart';
@@ -73,6 +75,7 @@ class _ProductInsertScreen extends State<ProductInsertScreen> {
             onPressed: () {
               Product product = Product(_name.text, double.parse(_price.text),
                   _location.text, _imageUrl.text, int.parse(_quant.text));
+                  
             },
             child: const Text("Salvar"),
           )

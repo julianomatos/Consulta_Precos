@@ -31,7 +31,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
       floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add),
           onPressed: () {
-            Navigator.of(context).pushNamed(RoutePaths.PRODUCTINSERTSCREEN);
+            Navigator.of(context).pushNamed(RoutePaths.PRODUCT_INSERT_SCREEN);
           }),
     );
   }
