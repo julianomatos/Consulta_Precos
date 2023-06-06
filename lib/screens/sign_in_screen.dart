@@ -1,3 +1,6 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:consulta_precos/routes/route_path.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -33,8 +36,9 @@ class _SingInScreenState extends State<SingInScreen> {
         const SnackBar(
           content: Text('Usuário autenticado.'),
           duration: Duration(seconds: 2),
-        ),
-      );
+        ),);
+        Navigator.of(context).restorablePushReplacementNamed(RoutePaths.PRODUCTS_LIST_SCREEN);
+      
     } catch (e) {
       setState(() {
         errorMessage = getErrorMessage(e);

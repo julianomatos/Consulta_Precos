@@ -2,8 +2,13 @@
 
 // ignore_for_file: unused_local_variable
 
+import 'dart:io';
+
 import 'package:consulta_precos/models/product.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+// ignore: depend_on_referenced_packages
 import 'package:location/location.dart';
 
 class ProductInsertScreen extends StatefulWidget {
@@ -19,6 +24,24 @@ class _ProductInsertScreen extends State<ProductInsertScreen> {
   final _location = TextEditingController();
   final _imageUrl = TextEditingController();
   final _quant = TextEditingController();
+  File? image;
+
+  Future<void> pickImage() async{
+    final picker = ImagePicker();
+    final pickImage = await picker.pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 50,
+      maxWidth: 200,
+      );
+      if (pickImage != null){
+        setState(() {
+          image = File(pickImage.path);
+        });
+        final firebaseStorage = FirebaseStorage.instance;
+        final reference = firebaseStorage.ref("products/123456.jpg");
+        reference.putFile(image!);
+      }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +89,10 @@ class _ProductInsertScreen extends State<ProductInsertScreen> {
             controller: _imageUrl,
             decoration: const InputDecoration(labelText: "URL da imagem"),
           ),
+          IconButton(onPressed: (){
+            pickImage();
+          },
+           icon: const Icon(Icons.camera)),
           TextField(
             controller: _quant,
             keyboardType: TextInputType.number,
