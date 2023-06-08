@@ -6,12 +6,10 @@ class Product {
   String imageUrl;
   int quant;
 
-  Product(
-      this.name, this.price, this.location, this.imageUrl, this.quant);
+  Product(this.name, this.price, this.location, this.imageUrl, this.quant);
 
-  Product.fromJson(Map<String, dynamic> json)
-      : id = json['id'],
-        name = json['name'],
+  Product.fromJson(String this.id, Map<String, dynamic> json)
+      : name = json['name'],
         price = json['price'],
         location = json['location'],
         imageUrl = json['imageUrl'],
@@ -25,12 +23,12 @@ class Product {
         'quant': quant
       };
 
-  static List<Product> listFromJson(Map<String, dynamic> json) {
-    List<Product> produts = [];
-    json.forEach((key, value) {
-      Map<String, dynamic> item = {'id': key, ...value};
-      produts.add(Product.fromJson(item));
-    });
-    return produts;
-  }
+  // static List<Product> listFromJson(Map<String, dynamic> json) {
+  //   List<Product> produts = [];
+  //   json.forEach((key, value) {
+  //     Map<String, dynamic> item = {'id': key, ...value};
+  //     produts.add(Product.fromJson(item));
+  //   });
+  //   return produts;
+  // }
 }
