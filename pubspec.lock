@@ -73,6 +73,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.17.0"
+  consultor_produtos_pk:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: main
+      resolved-ref: "1928edccee7b76bf301c63e16b07c54670851af9"
+      url: "https://github.com/julianomatos/consultor_produtos_pk.git"
+    source: git
+    version: "0.0.1"
   cross_file:
     dependency: transitive
     description:

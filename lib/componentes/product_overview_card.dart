@@ -1,9 +1,9 @@
 
 import 'package:consulta_precos/providers/products_provider.dart';
+// ignore: unused_import
 import 'package:consulta_precos/repositories/repository.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:consulta_precos/repositories/repository.dart';
 
 
 class ProductOverviewCard extends StatelessWidget {
@@ -31,11 +31,11 @@ class ProductOverviewCard extends StatelessWidget {
           ],
         ),
         Column(
-          children: [
-            const Text("R\$"),
+          children: const [
+            Text("R\$"),
             // Text(products.totalPrice(),
-            Text(Repository)
-            style: const TextStyle(fontSize: 36.0),),
+            // Text(Repository)
+            // style: const TextStyle(fontSize: 36.0),),
           ],
         )
       ]),

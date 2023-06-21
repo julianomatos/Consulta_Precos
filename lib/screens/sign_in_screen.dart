@@ -27,6 +27,7 @@ class _SingInScreenState extends State<SingInScreen> {
     String password = passwordController.text;
 
     try {
+      // ignore: unused_local_variable
       final user = await auth.signInWithEmailAndPassword(
         email: email,
         password: password,

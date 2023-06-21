@@ -10,8 +10,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'routes/route_path.dart';
+// import 'package:consultor_produtos_pk/consultor_produtos_pk.dart';
 
 void  main() async {
+  // final Calculator calculator =  Calculator();
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(
